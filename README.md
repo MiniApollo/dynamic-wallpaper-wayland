@@ -121,3 +121,5 @@ feh --bg-fill $DIR$HOUR.png
 - Readme: [Sigmanificient/dotfiles](https://github.com/Sigmanificient/dotfiles)
 
 # <samp>Thanks for reading!</samp>
+
+![alt dwall](https://raw.githubusercontent.com/adi1090x/files/master/dynamic-wallpaper/lakeside.gif)
