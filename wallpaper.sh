@@ -7,7 +7,7 @@
 ## Created to work better with job schedulers (cron)
 
 #change the DIR variable accordingly where you want to place it
-DIR="$HOME/SystemFiles/dynamic-wallpaper/images/firewatch/"
+DIR="$HOME/SystemFiles/dynamic-wallpaper-wayland/images/firewatch/"
 HOUR=`date +%k`
 FORMAT=".png"
 
