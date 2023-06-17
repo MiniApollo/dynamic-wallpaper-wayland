@@ -10,6 +10,7 @@
 
 ## <samp>Dependencies</samp>
 
+- git: To clone the repository
 - cron : To set a scheduler
 > **Note**
 > choose what you use (wayland or xorg) <br>
@@ -32,7 +33,7 @@ sudo pacman -S swaybg cronie
 doas emerge --ask swaybg dcron
 
 # On Void (Install your favorite cron)
-doas xbps-install -S swaybg <cron>
+doas xbps-install -S swaybg <cron of your choice>
 ```
 
 ## :wrench: <samp>INSTALLATION</samp>
@@ -42,7 +43,7 @@ doas xbps-install -S swaybg <cron>
 > **Warning**
 > Some additional configuration maybe required
 
-<kbd>1.</kbd> Clone the repository.
+### <kbd>1.</kbd> Clone the repository.
 
 > **Note**
 > I personally create a folder in my home directory (called SystemFiles) and clone the repository there.
@@ -53,7 +54,7 @@ cd SystemFiles/
 git clone https://github.com/SMark5/config.git --recurse-submodules
 cd config
 ```
-<kbd>2.</kbd> Setup cron job.
+### <kbd>2.</kbd> Setup cron job.
 > **Note**
 > In order to use this script you need to setup a cron job <br>
 <kbd>1.</kbd> First intall cron <br>
@@ -78,7 +79,7 @@ doas ln -s /etc/sv/<service-name> /var/service/
 ```
 - Other init system users (I think you get the point)
 
-<kbd>3.</kbd> Make a cron job.
+### <kbd>3.</kbd> Make a cron job.
 > **Note**
 > you need to add the following enviroment variables
 
@@ -97,7 +98,7 @@ crontab -e
 > **Warning**
 > Don't forget to change $HOME/SystemFiles if you placed it somewhere else
 
-<kbd>4.</kbd> Change script variables.
+### <kbd>4.</kbd> Change script variables.
 > **Note**
 > optional
 - Open the wallpaper.sh file with your favorite text editor
@@ -141,6 +142,14 @@ feh --bg-fill $DIR$HOUR.png
 - Rename the wallpapers (must be jpg/png) to 0-23. If you don't have enough images, symlink them.
 - Make directory to $HOME/SystemFiles/dynamic-wallpaper/images/
 - Rename DIR variable to DIR="$HOME/SystemFiles/dynamic-wallpaper/images/yourWallpaperDirName
+
+## <samp>Uninstall</samp>
+- delete the folder where you git cloned it
+- run crontab -r to remove the hour scheduler
+```bash
+crontab -r
+```
+- unistall dependencies(git, cron, swaybg, feh) if its not needed
 
 ## <samp>Sources</samp>
 
