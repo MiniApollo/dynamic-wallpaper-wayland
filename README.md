@@ -8,6 +8,33 @@
 
 </div>
 
+## <samp>Dependencies</samp>
+
+- cron : To set a scheduler
+> **Note**
+> choose what you use (wayland or xorg) <br>
+> If you want to use xorg change the comments as seen below
+- swaybg: To set wallpapers on wayland
+- feh : To set wallpapers on xorg 
+
+install cron swaybg
+```bash
+# On Ubuntu or Debian
+sudo apt-get install swaybg cron
+
+# On Fedora
+sudo dnf install swaybg cronie
+
+# On Arch 
+sudo pacman -S swaybg cronie
+
+# On Gentoo (I personaly use dcron)
+doas emerge --ask swaybg dcron
+
+# On Void (Install your favorite cron)
+doas xbps-install -S swaybg <cron>
+```
+
 ## :wrench: <samp>INSTALLATION</samp>
 
 ### :paperclip: <samp>Standard</samp>
@@ -31,7 +58,7 @@ cd config
 > In order to use this script you need to setup a cron job <br>
 <kbd>1.</kbd> First intall cron <br>
 <kbd>2.</kbd> After installing cron, enable and start the cron service <br>
-- Systemd users (most people linux mint, ubuntu, debian, arch etc.)
+- Systemd users (most people linux mint, ubuntu, debian, arch, fedora etc.)
 ```bash
 sudo systemctl enable cronie.service --now
 ```
