@@ -8,6 +8,12 @@
 
 </div>
 
+## <samp>Description</samp>
+
+- Dynamic wallpaper for wayland and xorg
+- Only 6 lines of code (wayland) and only 4 lines with Xorg
+- Easily customizable (default: firewatch)
+
 ## <samp>Dependencies</samp>
 
 - git: To clone the repository
