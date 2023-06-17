@@ -13,7 +13,7 @@ FORMAT=".png"
 
 #wayland
 #set background
-swaybg -o \* -i $DIR$HOUR.png -m fill
+swaybg -o \* -i $DIR$HOUR.png -m fill &
 sleep 1
 # kill all older processes of swaybg
 kill $(ps -eo pid,etime,comm | grep 'swaybg' | awk '{ print $1 }' | head -n -1)
