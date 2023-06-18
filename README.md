@@ -11,7 +11,7 @@
 ## <samp>Description</samp>
 
 - Dynamic wallpaper for wayland and xorg
-- Only 6 lines of code (wayland) and only 4 lines with Xorg
+- Only 5 lines of code (wayland) and only 3 lines with Xorg
 - Easily customizable (default: firewatch)
 
 ## <samp>Dependencies</samp>
@@ -129,8 +129,8 @@ DIR="$HOME/SystemFiles/dynamic-wallpaper/images/firewatch/"
 HOUR=`date +%k`
 FORMAT=".png"
 
-#wayland
 #set background
+#wayland
 #swaybg -o \* -i $DIR$HOUR.png -m fill
 #sleep 1
 # kill all older processes of swaybg
