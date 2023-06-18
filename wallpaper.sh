@@ -8,11 +8,10 @@
 
 #change the DIR variable accordingly where you want to place it
 DIR="$HOME/SystemFiles/dynamic-wallpaper-wayland/images/firewatch/"
-HOUR=`date +%k`
-FORMAT=".png"
+HOUR=$(($(date +%k)/1))
 
-#wayland
 #set background
+#wayland
 swaybg -o \* -i $DIR$HOUR.png -m fill &
 sleep 1
 # kill all older processes of swaybg
