@@ -2,7 +2,7 @@
 
 # ❖Dynamic-wallpaper-wayland ❖
 
-![GitHub Repo stars](https://img.shields.io/github/stars/SMark5/dynamic-wallpaper-wayland?style=for-the-badge&labelColor=1B2330&color=807EDD) ![GitHub last commit](https://img.shields.io/github/last-commit/SMark5/dynamic-wallpaper-wayland?style=for-the-badge&labelColor=1B2330&color=807EDD) ![GitHub repo size](https://img.shields.io/github/repo-size/SMark5/dynamic-wallpaper-wayland?style=for-the-badge&labelColor=1B2330&color=807EDD)
+![GitHub Repo stars](https://img.shields.io/github/stars/MiniApollo/dynamic-wallpaper-wayland?style=for-the-badge&labelColor=1B2330&color=807EDD) ![GitHub last commit](https://img.shields.io/github/last-commit/MiniApollo/dynamic-wallpaper-wayland?style=for-the-badge&labelColor=1B2330&color=807EDD) ![GitHub repo size](https://img.shields.io/github/repo-size/MiniApollo/dynamic-wallpaper-wayland?style=for-the-badge&labelColor=1B2330&color=807EDD)
 
 *Inspired by adi1090x/dynamic-wallpaper*
 
@@ -19,12 +19,12 @@
 - git: To clone the repository
 - cron : To set a scheduler
 > **Note**
-> choose what you use (wayland or xorg) <br>
+> Choose what you use (wayland or xorg) <br>
 > If you want to use xorg change the comments as seen below
 - swaybg: To set wallpapers on wayland
-- feh : To set wallpapers on xorg 
+- feh : To set wallpapers on xorg
 
-install cron swaybg
+Install cron swaybg
 ```bash
 # On Ubuntu or Debian
 sudo apt-get install swaybg cron
@@ -32,7 +32,7 @@ sudo apt-get install swaybg cron
 # On Fedora
 sudo dnf install swaybg cronie
 
-# On Arch 
+# On Arch
 sudo pacman -S swaybg cronie
 
 # On Gentoo (I personaly use dcron)
@@ -42,7 +42,7 @@ doas emerge --ask swaybg dcron
 doas xbps-install -S swaybg <cron of your choice>
 ```
 
-## :wrench: <samp>INSTALLATION</samp>
+## :wrench: <samp>Installation</samp>
 
 ### :paperclip: <samp>Standard</samp>
 
@@ -54,11 +54,10 @@ doas xbps-install -S swaybg <cron of your choice>
 > **Note**
 > I personally create a folder in my home directory (called SystemFiles) and clone the repository there.
 ```bash
-cd 
+cd
 mkdir SystemFiles
 cd SystemFiles/
-git clone https://github.com/SMark5/config.git --recurse-submodules
-cd config
+git clone https://github.com/MiniApollo/dynamic-wallpaper-wayland.git
 ```
 ### <kbd>2.</kbd> Setup cron job.
 > **Note**
@@ -91,7 +90,7 @@ doas ln -s /etc/sv/<service-name> /var/service/
 
 ```bash
 echo "$WAYLAND_DISPLAY | $DISPLAY | $XDG_RUNTIME_DIR"
-#my output
+## My output
 wayland-1 | :0 | /run/user/1000
 ```
 
@@ -113,32 +112,30 @@ crontab -e
 #change the DIR variable accordingly where you want to place it
 DIR="$HOME/SystemFiles/dynamic-wallpaper/images/firewatch/
 ```
-- you can use it with xorg  just change the comments
+- You can use it with Xorg just change the comments
 
 ```bash
-#!/bin/sh 
+#!/usr/bin/env bash
 
-## Author  : SMark5
-#Inspired by adi1090x/dynamic-wallpaper 
+## Author: MiniApollo
+## Inspired by adi1090x/dynamic-wallpaper
 
 ## Dynamic Wallpaper : Set wallpapers according to current time.
 ## Created to work better with job schedulers (cron)
 
-#change the DIR variable accordingly where you want to place it
-DIR="$HOME/SystemFiles/dynamic-wallpaper/images/firewatch/"
-HOUR=`date +%k`
-FORMAT=".png"
+## Change the DIR variable accordingly where you want to place it
+DIR="$HOME/SystemFiles/dynamic-wallpaper-wayland/images/firewatch/"
+HOUR=$(($(date +%k)/1))
 
-#set background
-#wayland
-#swaybg -o \* -i $DIR$HOUR.png -m fill
+### Set background
+## Wayland
+#swaybg -o \* -i $DIR$HOUR.png -m fill &
 #sleep 1
-# kill all older processes of swaybg
+## Kill all older processes of swaybg
 #kill $(ps -eo pid,etime,comm | grep 'swaybg' | awk '{ print $1 }' | head -n -1)
 
-#xorg
-#if you want to use xorg just uncomment the line bellow
-#and comment the wayland lines above
+## Xorg
+## If you want to use xorg just uncomment the line bellow and comment the wayland lines above
 feh --bg-fill $DIR$HOUR.png
 ```
 
@@ -150,12 +147,12 @@ feh --bg-fill $DIR$HOUR.png
 - Rename DIR variable to DIR="$HOME/SystemFiles/dynamic-wallpaper/images/yourWallpaperDirName
 
 ## <samp>Uninstall</samp>
-- delete the folder where you git cloned it
-- run crontab -r to remove the hour scheduler
+- Delete the folder where you git cloned it
+- Run crontab -r to remove the hour scheduler
 ```bash
 crontab -r
 ```
-- unistall dependencies(git, cron, swaybg, feh) if its not needed
+- Unistall dependencies(git, cron, swaybg, feh) if its not needed
 
 ## <samp>Sources</samp>
 
