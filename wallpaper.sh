@@ -15,7 +15,9 @@ HOUR=$(($(date +%k)/1))
 swaybg -o \* -i $DIR$HOUR.png -m fill &
 sleep 1
 ## Kill all older processes of swaybg
-kill $(ps -eo pid,etime,comm | grep 'swaybg' | awk '{ print $1 }' | head -n -1)
+## List all processes in descending chronological order, Find all swaybg, Get first row (pid), Get first line, Send sigterm signal
+## Need --sort, because the default sorting order is by pid and over time, it starts all over again from 0, breaking the script
+kill $(ps -eo pid,etime,comm --sort=-etime | grep 'swaybg' | awk '{ print $1 }' | head -n -1)
 
 ## Xorg
 ## If you want to use xorg just uncomment the line bellow and comment the wayland lines above
